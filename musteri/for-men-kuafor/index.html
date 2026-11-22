@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="For Men Kuaför — Osmanağa’da profesyonel saç kesimi, sakal bakımı ve hızlı randevu">
+  <title>For Men Kuaför | Dijital Randevu &amp; Hizmet Vitrini</title>
+  <style>
+    @layer base, layout, components;
+
+    @layer base {
+      :root {
+        color-scheme: light;
+        --accent: #ea580c;
+        --accent-soft: #fff0e6;
+        --bg: #f6f7fb;
+        --surface: #ffffff;
+        --ink: #131a29;
+        --muted: #57534e;
+        --border: rgba(20,20,20,0.09);
+        --radius: 16px;
+        --shadow: 0 8px 24px rgba(15,23,42,0.06);
+        --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        accent-color: var(--accent);
+      }
+
+      html {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font-sans);
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        padding-block-end: 96px;
+      }
+      img { max-width: 100%; height: auto; display: block; }
+      button, input, textarea { font: inherit; color: inherit; }
+      a { color: inherit; }
+
+      :where(a:any-link, button, input, textarea):focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      .visually-hidden:where(:not(:focus-within, :active)) {
+        position: absolute !important;
+        clip-path: inset(50%) !important;
+        overflow: hidden !important;
+        width: 1px !important;
+        height: 1px !important;
+        margin: -1px !important;
+        padding: 0 !important;
+        border: 0 !important;
+        white-space: nowrap !important;
+      }
+    }
+
+    @layer layout {
+      .shell {
+        max-inline-size: 740px;
+        margin-inline: auto;
+        padding-inline: 16px;
+      }
+
+      .hero {
+        position: relative;
+        padding-block: 24px 18px;
+        border-block-end: 1px solid var(--border);
+        background: linear-gradient(160deg, var(--accent-soft) 0%, var(--bg) 72%);
+      }
+
+      .hero-top {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .brand-mark {
+        inline-size: 60px;
+        block-size: 60px;
+        border-radius: 16px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 800;
+        font-size: 1.25rem;
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .brand-mark img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-block-end: 4px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.35rem, 4vw, 1.85rem);
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+      }
+
+      .tagline {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .highlights {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        list-style: none;
+        padding: 0;
+        margin: 14px 0 0;
+      }
+      .highlights li {
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+      }
+
+      .quick-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-block-start: 16px;
+      }
+
+      .announcement {
+        margin-block-start: 14px;
+        padding: 12px 14px;
+        border-radius: 12px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-inline-start: 4px solid var(--accent);
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+    }
+
+    @layer components {
+      .chip-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        min-block-size: 40px;
+        padding: 8px 13px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        text-decoration: none;
+        font-size: 0.86rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.12s ease, border-color 0.15s ease;
+      }
+      .chip-btn:hover { border-color: var(--accent); }
+      .chip-btn:active { transform: scale(0.98); }
+      .chip-btn.primary {
+        background: var(--accent);
+        color: #fff;
+        border-color: transparent;
+      }
+
+      .sticky-controls {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 20;
+        background: var(--bg);
+        border-block-end: 1px solid var(--border);
+        padding-block: 12px;
+      }
+
+      .search-box {
+        position: relative;
+        margin-block-end: 10px;
+      }
+      .search-input {
+        box-sizing: border-box;
+        inline-size: 100%;
+        min-block-size: 44px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        font-size: 0.95rem;
+      }
+
+      .cat-bar {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-block: 2px 4px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--border) transparent;
+      }
+      @media (min-width: 520px) {
+        .cat-bar {
+          flex-wrap: wrap;
+          overflow-x: visible;
+        }
+      }
+
+      .cat-pill {
+        flex-shrink: 0;
+        min-block-size: 38px;
+        padding: 7px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        font-size: 0.86rem;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .cat-pill.is-active {
+        background: var(--accent);
+        color: #fff;
+        border-color: transparent;
+      }
+
+      .cat-section {
+        margin-block-start: 24px;
+      }
+      .cat-heading-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-block-end: 12px;
+      }
+      .cat-heading-row h2 {
+        margin: 0;
+        font-size: 1.18rem;
+        letter-spacing: -0.01em;
+      }
+      .cat-count {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .card-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .menu-card {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 14px;
+        border-radius: var(--radius);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+      .menu-card[hidden] { display: none; }
+      .menu-card-body { flex: 1; min-inline-size: 0; }
+      .menu-card-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+      .menu-card h3 {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.3;
+      }
+      .item-badge {
+        font-size: 0.72rem;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+      .item-desc {
+        margin: 6px 0 0;
+        font-size: 0.87rem;
+        color: var(--muted);
+      }
+      .menu-card-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-block-start: 12px;
+        flex-wrap: wrap;
+      }
+      .price-wrap {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+      }
+      .item-price {
+        font-size: 1.04rem;
+        font-weight: 800;
+        color: var(--accent);
+      }
+      .item-meta {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .item-thumb {
+        inline-size: 84px;
+        block-size: 84px;
+        border-radius: 12px;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+
+      .btn-add {
+        min-block-size: 36px;
+        padding: 6px 12px;
+        border-radius: 10px;
+        border: 1px solid var(--accent);
+        background: transparent;
+        color: var(--accent);
+        font-size: 0.84rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .btn-add:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+      .qty-stepper {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--accent-soft);
+        border-radius: 10px;
+        padding: 2px;
+      }
+      .qty-btn {
+        min-inline-size: 32px;
+        min-block-size: 32px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--ink);
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .qty-val {
+        min-inline-size: 22px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      .info-panel {
+        margin-block-start: 28px;
+        padding: 18px;
+        border-radius: var(--radius);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        display: grid;
+        gap: 12px;
+      }
+      .info-panel h2 {
+        margin: 0;
+        font-size: 1.05rem;
+      }
+      .info-row {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        font-size: 0.9rem;
+      }
+      .info-label {
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--muted);
+      }
+
+      .review-card {
+        margin-block-start: 18px;
+        padding: 18px;
+        border-radius: var(--radius);
+        background: var(--accent-soft);
+        border: 1px solid var(--border);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .review-card h2 { margin: 0 0 4px; font-size: 1.02rem; }
+      .review-card p { margin: 0; font-size: 0.87rem; color: var(--muted); }
+
+      .cart-bar {
+        position: fixed;
+        inset-block-end: 14px;
+        inset-inline: 16px;
+        max-inline-size: 708px;
+        margin-inline: auto;
+        z-index: 30;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 16px;
+        border-radius: 16px;
+        background: var(--ink);
+        color: #ffffff;
+        box-shadow: 0 14px 34px rgba(0,0,0,0.28);
+      }
+      .cart-bar[hidden] { display: none; }
+      .cart-bar-cta {
+        min-block-size: 40px;
+        padding: 8px 16px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      dialog {
+        box-sizing: border-box;
+        inline-size: min(94vw, 480px);
+        max-block-size: 88dvh;
+        padding: 0;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--surface);
+        color: var(--ink);
+        box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      }
+      dialog:modal {
+        overscroll-behavior: contain;
+      }
+      dialog::backdrop {
+        background: rgba(0, 0, 0, 0.58);
+        backdrop-filter: blur(3px);
+        overflow: hidden;
+        overscroll-behavior: contain;
+      }
+      .dialog-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 18px;
+        border-block-end: 1px solid var(--border);
+      }
+      .dialog-head h2 { margin: 0; font-size: 1.08rem; }
+      .dialog-close {
+        min-inline-size: 36px;
+        min-block-size: 36px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: transparent;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .dialog-body {
+        padding: 16px 18px 20px;
+        display: grid;
+        gap: 14px;
+      }
+      .cart-lines {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 8px;
+      }
+      .cart-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding-block-end: 8px;
+        border-block-end: 1px solid var(--border);
+        font-size: 0.92rem;
+      }
+      .field { display: grid; gap: 5px; }
+      .field label { font-size: 0.85rem; font-weight: 700; }
+      .field input, .field textarea {
+        box-sizing: border-box;
+        inline-size: 100%;
+        min-block-size: 42px;
+        padding: 9px 12px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--bg);
+      }
+      .field :is(:user-invalid, .user-invalid-fallback) {
+        border-color: #dc2626;
+      }
+      .error-msg {
+        display: none;
+        font-size: 0.8rem;
+        color: #dc2626;
+        font-weight: 600;
+      }
+      .field :is(:user-invalid, .user-invalid-fallback) + .error-msg {
+        display: block;
+      }
+      .wa-submit {
+        min-block-size: 46px;
+        border: 0;
+        border-radius: 12px;
+        background: #16a34a;
+        color: #fff;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .toast {
+        position: fixed;
+        inset-block-start: 16px;
+        inset-inline-end: 16px;
+        z-index: 50;
+        padding: 10px 14px;
+        border-radius: 10px;
+        background: var(--ink);
+        color: #ffffff;
+        font-size: 0.85rem;
+        font-weight: 700;
+        box-shadow: var(--shadow);
+      }
+      .toast[hidden] { display: none; }
+
+      .empty-state {
+        text-align: center;
+        padding: 36px 16px;
+        color: var(--muted);
+      }
+      .empty-state[hidden] { display: none; }
+
+      footer.site-footer {
+        margin-block-start: 28px;
+        padding-block: 18px;
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--muted);
+        border-block-start: 1px solid var(--border);
+      }
+      footer.site-footer a {
+        color: var(--accent);
+        font-weight: 700;
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="visually-hidden">İçeriğe geç</a>
+
+  <header class="hero">
+    <div class="shell">
+      <div class="hero-top">
+        <div class="brand-mark" aria-hidden="true">
+          FM
+        </div>
+        <div>
+          <div class="eyebrow">Dijital Randevu &amp; Hizmet Vitrini · Osmanağa, Kadıköy</div>
+          <h1 id="main-content" tabindex="-1">For Men Kuaför</h1>
+        </div>
+      </div>
+
+      <p class="tagline">Osmanağa’da profesyonel saç kesimi, sakal bakımı ve hızlı randevu</p>
+
+      <ul class="highlights"><li>Uzman Ekip</li><li>Hızlı Randevu</li><li>Hijyenik Ortam</li><li>Kadıköy Merkez</li></ul>
+
+      <nav class="quick-actions" aria-label="Hızlı işlemler">
+        <a class="chip-btn primary" href="https://wa.me/905456610706" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a class="chip-btn" href="tel:+905456610706">Ara</a>
+        <a class="chip-btn" href="https://maps.google.com/?q=For+Men+Kuafor+Osmanaga+Kadikoy" target="_blank" rel="noopener noreferrer">Yol Tarifi</a>
+        
+        <button type="button" class="chip-btn" id="wifiBtn">Wi-Fi Şifresi</button>
+        <button type="button" class="chip-btn" id="vcardBtn">Rehbere Kaydet</button>
+      </nav>
+
+      <div class="announcement" role="note">Örnek Taslak — Güncel fiyat listenizle 24 saatte canlıya alınır.</div>
+    </div>
+  </header>
+
+  <div class="sticky-controls">
+    <div class="shell">
+      <search class="search-box">
+        <label for="menuSearch" class="visually-hidden">Hizmet veya bakım ara...</label>
+        <input id="menuSearch" class="search-input" type="search" placeholder="Hizmet veya bakım ara..." autocomplete="off">
+      </search>
+      <nav class="cat-bar" aria-label="Kategoriler">
+        <button type="button" class="cat-pill is-active" data-cat-filter="all" aria-pressed="true">Tümü</button>
+        <button type="button" class="cat-pill" data-cat-filter="cat-0" aria-pressed="false">Saç &amp; Sakal Tasarımı</button><button type="button" class="cat-pill" data-cat-filter="cat-1" aria-pressed="false">Erkek Bakım &amp; VIP</button>
+      </nav>
+    </div>
+  </div>
+
+  <main class="shell">
+    
+        <section class="cat-section" data-cat-section="cat-0" id="cat-0">
+          <div class="cat-heading-row">
+            <h2>Saç &amp; Sakal Tasarımı</h2>
+            <span class="cat-count">3 seçenek</span>
+          </div>
+          <div class="card-grid">
+            <article class="menu-card" data-search-text="saç &amp; sakal tasarımı modern saç kesimi &amp; yıkama yüz tipine uygun stil danışmanlığı, yıkama ve fön dahil çok satan">
+              <div class="menu-card-body">
+                <div class="menu-card-head">
+                  <h3>Modern Saç Kesimi &amp; Yıkama</h3>
+                  <span class="item-badge">Çok Satan</span>
+                </div>
+                <p class="item-desc">Yüz tipine uygun stil danışmanlığı, yıkama ve fön dahil</p>
+                <div class="menu-card-foot">
+                  <div class="price-wrap">
+                    <span class="item-price">450 ₺</span>
+                    <span class="item-meta">40 dk</span>
+                  </div>
+                  <div class="item-actions" data-item-controls="0-0">
+                 <button type="button" class="btn-add" data-add-item="0-0" data-name="Modern Saç Kesimi &amp; Yıkama" data-price="450" aria-label="Modern Saç Kesimi &amp; Yıkama — Seç">
+                   <span aria-hidden="true">+</span> Seç
+                 </button>
+               </div>
+                </div>
+              </div>
+              
+            </article>
+            <article class="menu-card" data-search-text="saç &amp; sakal tasarımı sakal tasarımı &amp; sıcak havlu buharlı sıcak havlu, ustura hat belirleme ve losyon bakımı ">
+              <div class="menu-card-body">
+                <div class="menu-card-head">
+                  <h3>Sakal Tasarımı &amp; Sıcak Havlu</h3>
+                  
+                </div>
+                <p class="item-desc">Buharlı sıcak havlu, ustura hat belirleme ve losyon bakımı</p>
+                <div class="menu-card-foot">
+                  <div class="price-wrap">
+                    <span class="item-price">250 ₺</span>
+                    <span class="item-meta">25 dk</span>
+                  </div>
+                  <div class="item-actions" data-item-controls="0-1">
+                 <button type="button" class="btn-add" data-add-item="0-1" data-name="Sakal Tasarımı &amp; Sıcak Havlu" data-price="250" aria-label="Sakal Tasarımı &amp; Sıcak Havlu — Seç">
+                   <span aria-hidden="true">+</span> Seç
+                 </button>
+               </div>
+                </div>
+              </div>
+              
+            </article>
+            <article class="menu-card" data-search-text="saç &amp; sakal tasarımı saç + sakal kombo paket komple kesim, sıcak havlu sakal bakımı ve şekillendirme popüler">
+              <div class="menu-card-body">
+                <div class="menu-card-head">
+                  <h3>Saç + Sakal Kombo Paket</h3>
+                  <span class="item-badge">Popüler</span>
+                </div>
+                <p class="item-desc">Komple kesim, sıcak havlu sakal bakımı ve şekillendirme</p>
+                <div class="menu-card-foot">
+                  <div class="price-wrap">
+                    <span class="item-price">650 ₺</span>
+                    <span class="item-meta">60 dk</span>
+                  </div>
+                  <div class="item-actions" data-item-controls="0-2">
+                 <button type="button" class="btn-add" data-add-item="0-2" data-name="Saç + Sakal Kombo Paket" data-price="650" aria-label="Saç + Sakal Kombo Paket — Seç">
+                   <span aria-hidden="true">+</span> Seç
+                 </button>
+               </div>
+                </div>
+              </div>
+              
+            </article></div>
+        </section>
+        <section class="cat-section" data-cat-section="cat-1" id="cat-1">
+          <div class="cat-heading-row">
+            <h2>Erkek Bakım &amp; VIP</h2>
+            <span class="cat-count">2 seçenek</span>
+          </div>
+          <div class="card-grid">
+            <article class="menu-card" data-search-text="erkek bakım &amp; vip buharlı cilt &amp; siyah nokta bakımı buhar terapisi, derin gözenek temizliği ve nemlendirici maske yeni">
+              <div class="menu-card-body">
+                <div class="menu-card-head">
+                  <h3>Buharlı Cilt &amp; Siyah Nokta Bakımı</h3>
+                  <span class="item-badge">Yeni</span>
+                </div>
+                <p class="item-desc">Buhar terapisi, derin gözenek temizliği ve nemlendirici maske</p>
+                <div class="menu-card-foot">
+                  <div class="price-wrap">
+                    <span class="item-price">400 ₺</span>
+                    <span class="item-meta">30 dk</span>
+                  </div>
+                  <div class="item-actions" data-item-controls="1-0">
+                 <button type="button" class="btn-add" data-add-item="1-0" data-name="Buharlı Cilt &amp; Siyah Nokta Bakımı" data-price="400" aria-label="Buharlı Cilt &amp; Siyah Nokta Bakımı — Seç">
+                   <span aria-hidden="true">+</span> Seç
+                 </button>
+               </div>
+                </div>
+              </div>
+              
+            </article>
+            <article class="menu-card" data-search-text="erkek bakım &amp; vip vip damat / özel gün bakımı saç &amp; sakal tasarım, kaş düzenleme, cilt bakımı ve keratin fön vip">
+              <div class="menu-card-body">
+                <div class="menu-card-head">
+                  <h3>VIP Damat / Özel Gün Bakımı</h3>
+                  <span class="item-badge">VIP</span>
+                </div>
+                <p class="item-desc">Saç &amp; sakal tasarım, kaş düzenleme, cilt bakımı ve keratin fön</p>
+                <div class="menu-card-foot">
+                  <div class="price-wrap">
+                    <span class="item-price">1.450 ₺</span>
+                    <span class="item-meta">90 dk</span>
+                  </div>
+                  <div class="item-actions" data-item-controls="1-1">
+                 <button type="button" class="btn-add" data-add-item="1-1" data-name="VIP Damat / Özel Gün Bakımı" data-price="1450" aria-label="VIP Damat / Özel Gün Bakımı — Seç">
+                   <span aria-hidden="true">+</span> Seç
+                 </button>
+               </div>
+                </div>
+              </div>
+              
+            </article></div>
+        </section>
+    <p id="emptySearch" class="empty-state" hidden>Aramanızla eşleşen bir seçenek bulunamadı.</p>
+
+    
+    <section class="review-card" aria-labelledby="review-title">
+      <div>
+        <h2 id="review-title">Deneyiminiz nasıldı? ★</h2>
+        <p>Google’da 10 saniyelik bir yorum bırakarak bize destek olabilirsiniz.</p>
+      </div>
+      <a class="chip-btn primary" href="https://maps.google.com/?q=For+Men+Kuafor+Osmanaga+Kadikoy" target="_blank" rel="noopener noreferrer">Google’da Değerlendir</a>
+    </section>
+
+    <section class="info-panel" aria-labelledby="info-title">
+      <h2 id="info-title">İletişim & Çalışma Saatleri</h2>
+      <div class="info-row"><span class="info-label">Çalışma Saatleri</span><span>Her gün 09:00 – 21:00</span></div>
+      <div class="info-row"><span class="info-label">Adres</span><span>Osmanağa Mah., Kırtasiyeci Sok., No:11B, Kadıköy / İstanbul</span></div>
+      <div class="info-row"><span class="info-label">Misafir Wi-Fi</span><span>Ağ: <strong>ForMen_Guest</strong> · Şifre: <strong>ornek-sifre</strong></span></div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <p>© 2026 For Men Kuaför</p>
+    <p>Aidatsız dijital vitrin altyapısı: <a href="https://alihanagus1-ops.github.io/vitrinkur/" target="_blank" rel="noopener noreferrer">VitrinKur Dijital</a></p>
+  </footer>
+
+  <div id="cartBar" class="cart-bar" hidden>
+    <div>
+      <div style="font-size:0.78rem;opacity:0.8">Seçilen Hizmetler</div>
+      <strong id="cartSummary">0 ürün · 0 ₺</strong>
+    </div>
+    <button type="button" class="cart-bar-cta" id="openCartBtn">Randevu Oluştur</button>
+  </div>
+
+  <dialog id="cartDialog" closedby="any" aria-labelledby="cartDialogTitle">
+    <div class="dialog-head">
+      <h2 id="cartDialogTitle">WhatsApp Randevu Talebi</h2>
+      <button type="button" class="dialog-close" id="closeCartBtn" aria-label="Kapat">✕</button>
+    </div>
+    <form class="dialog-body" id="waOrderForm" novalidate>
+      <ul class="cart-lines" id="cartLines"></ul>
+      <div style="display:flex;justify-content:space-between;font-weight:800;font-size:1.05rem;">
+        <span>Tahmini Toplam</span>
+        <span id="cartTotalDialog">0 ₺</span>
+      </div>
+      <div class="field">
+        <label for="customerExtra">Adınız Soyadınız</label>
+        <input id="customerExtra" type="text" required placeholder="Örn: Selin Yılmaz" data-error="extraError">
+        <div id="extraError" class="error-msg">Lütfen bu alanı doldurun.</div>
+      </div>
+      <div class="field">
+        <label for="customerNote">Tercih ettiğiniz gün / saat</label>
+        <textarea id="customerNote" rows="2" placeholder="Örn: Yarın saat 15:00 civarı müsait mi?"></textarea>
+      </div>
+      <button type="submit" class="wa-submit">WhatsApp’tan Randevu İste</button>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script>
+    (() => {
+      const DATA = {"templateType":"salon","businessName":"For Men Kuaför","phone":"905456610706","whatsapp":"905456610706","address":"Osmanağa Mah., Kırtasiyeci Sok., No:11B, Kadıköy / İstanbul","wifiName":"ForMen_Guest","wifiPass":"ornek-sifre","enableCart":true,"waIntro":"Merhaba, web vitrininiz üzerinden randevu talep etmek istiyorum:","extraFieldLabel":"Adınız Soyadınız"};
+      const cart = new Map();
+      const searchInput = document.getElementById('menuSearch');
+      const pills = Array.from(document.querySelectorAll('.cat-pill'));
+      const sections = Array.from(document.querySelectorAll('.cat-section'));
+      const emptySearch = document.getElementById('emptySearch');
+      const cartBar = document.getElementById('cartBar');
+      const cartSummary = document.getElementById('cartSummary');
+      const cartDialog = document.getElementById('cartDialog');
+      const cartLines = document.getElementById('cartLines');
+      const cartTotalDialog = document.getElementById('cartTotalDialog');
+      const openCartBtn = document.getElementById('openCartBtn');
+      const closeCartBtn = document.getElementById('closeCartBtn');
+      const waOrderForm = document.getElementById('waOrderForm');
+      const toast = document.getElementById('toast');
+
+      let activeCat = 'all';
+      let toastTimer;
+
+      function showToast(msg) {
+        clearTimeout(toastTimer);
+        toast.textContent = msg;
+        toast.hidden = false;
+        toastTimer = setTimeout(() => { toast.hidden = true; }, 2600);
+      }
+
+      // Light-dismiss fallback for browsers without native closedby support
+      if (cartDialog && !('closedBy' in HTMLDialogElement.prototype)) {
+        const outside = (e) => {
+          const r = cartDialog.getBoundingClientRect();
+          return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+        };
+        let downOut = false;
+        cartDialog.addEventListener('pointerdown', (e) => { downOut = outside(e); });
+        cartDialog.addEventListener('pointerup', (e) => { if (downOut && outside(e)) cartDialog.close(); });
+      }
+
+      function applyFilters() {
+        const q = (searchInput.value || '').trim().toLowerCase();
+        let visibleCount = 0;
+        for (const sec of sections) {
+          const matchesCat = activeCat === 'all' || sec.dataset.catSection === activeCat;
+          if (!matchesCat) {
+            sec.hidden = true;
+            continue;
+          }
+          let secVisible = 0;
+          for (const card of sec.querySelectorAll('.menu-card')) {
+            const matchText = !q || (card.dataset.searchText || '').includes(q);
+            card.hidden = !matchText;
+            if (matchText) secVisible++;
+          }
+          sec.hidden = secVisible === 0;
+          visibleCount += secVisible;
+        }
+        emptySearch.hidden = visibleCount > 0;
+      }
+
+      pills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          activeCat = pill.dataset.catFilter;
+          pills.forEach((p) => {
+            const active = p === pill;
+            p.classList.toggle('is-active', active);
+            p.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+          applyFilters();
+        });
+      });
+
+      searchInput.addEventListener('input', applyFilters);
+
+      function renderItemControl(id, name, price) {
+        const box = document.querySelector('[data-item-controls="' + id + '"]');
+        if (!box) return;
+        const entry = cart.get(id);
+        box.replaceChildren();
+        if (!entry) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'btn-add';
+          btn.dataset.addItem = id;
+          btn.dataset.name = name;
+          btn.dataset.price = String(price);
+          btn.textContent = '+ Seç';
+          box.append(btn);
+          return;
+        }
+        const wrap = document.createElement('div');
+        wrap.className = 'qty-stepper';
+        const minus = document.createElement('button');
+        minus.type = 'button';
+        minus.className = 'qty-btn';
+        minus.textContent = '−';
+        minus.setAttribute('aria-label', name + ' azalt');
+        minus.addEventListener('click', () => updateQty(id, name, price, -1));
+
+        const val = document.createElement('span');
+        val.className = 'qty-val';
+        val.textContent = String(entry.qty);
+
+        const plus = document.createElement('button');
+        plus.type = 'button';
+        plus.className = 'qty-btn';
+        plus.textContent = '+';
+        plus.setAttribute('aria-label', name + ' artır');
+        plus.addEventListener('click', () => updateQty(id, name, price, 1));
+
+        wrap.append(minus, val, plus);
+        box.append(wrap);
+      }
+
+      function updateCartUI() {
+        let count = 0;
+        let total = 0;
+        for (const item of cart.values()) {
+          count += item.qty;
+          total += item.qty * item.price;
+        }
+        cartBar.hidden = count === 0;
+        cartSummary.textContent = count + ' seçenek · ' + Math.round(total).toLocaleString('tr-TR') + ' ₺';
+        cartTotalDialog.textContent = Math.round(total).toLocaleString('tr-TR') + ' ₺';
+
+        cartLines.replaceChildren();
+        for (const [id, item] of cart.entries()) {
+          const li = document.createElement('li');
+          li.className = 'cart-line';
+          const left = document.createElement('span');
+          left.textContent = item.qty + '× ' + item.name;
+          const right = document.createElement('strong');
+          right.textContent = Math.round(item.qty * item.price).toLocaleString('tr-TR') + ' ₺';
+          li.append(left, right);
+          cartLines.append(li);
+        }
+      }
+
+      function updateQty(id, name, price, delta) {
+        const prev = cart.get(id);
+        const nextQty = (prev ? prev.qty : 0) + delta;
+        if (nextQty <= 0) {
+          cart.delete(id);
+        } else {
+          cart.set(id, { name, price: Number(price) || 0, qty: nextQty });
+        }
+        renderItemControl(id, name, price);
+        updateCartUI();
+      }
+
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-add-item]');
+        if (!btn) return;
+        updateQty(btn.dataset.addItem, btn.dataset.name, Number(btn.dataset.price) || 0, 1);
+      });
+
+      openCartBtn?.addEventListener('click', () => cartDialog.showModal());
+      closeCartBtn?.addEventListener('click', () => cartDialog.close('cancel'));
+      cartDialog?.addEventListener('close', () => { cartDialog.returnValue = ''; });
+
+      const extraInput = document.getElementById('customerExtra');
+      const syncValidity = () => {
+        const invalid = !extraInput.validity.valid;
+        extraInput.classList.toggle('user-invalid-fallback', invalid);
+        extraInput.setAttribute('aria-invalid', invalid ? 'true' : 'false');
+        if (invalid) extraInput.setAttribute('aria-describedby', 'extraError');
+        else extraInput.removeAttribute('aria-describedby');
+      };
+      extraInput?.addEventListener('blur', syncValidity);
+      extraInput?.addEventListener('input', () => {
+        if (extraInput.getAttribute('aria-invalid') === 'true') syncValidity();
+      });
+
+      waOrderForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!extraInput.validity.valid) {
+          syncValidity();
+          extraInput.focus();
+          return;
+        }
+        if (cart.size === 0 || !DATA.whatsapp) return;
+        let total = 0;
+        const lines = [];
+        for (const item of cart.values()) {
+          const sub = item.qty * item.price;
+          total += sub;
+          lines.push('• ' + item.qty + 'x ' + item.name + ' (' + Math.round(sub).toLocaleString('tr-TR') + ' TL)');
+        }
+        const extra = extraInput.value.trim();
+        const note = document.getElementById('customerNote').value.trim();
+        const text = [
+          DATA.waIntro,
+          '',
+          ...lines,
+          '',
+          'Toplam: ' + Math.round(total).toLocaleString('tr-TR') + ' TL',
+          DATA.extraFieldLabel + ': ' + extra,
+          note ? 'Not: ' + note : ''
+        ].filter(Boolean).join('\n');
+
+        const url = 'https://wa.me/' + DATA.whatsapp + '?text=' + encodeURIComponent(text);
+        window.open(url, '_blank', 'noopener,noreferrer');
+        cartDialog.close();
+      });
+
+      document.getElementById('wifiBtn')?.addEventListener('click', async () => {
+        const val = DATA.wifiPass || DATA.wifiName;
+        try {
+          await navigator.clipboard.writeText(val);
+          showToast('Wi-Fi şifresi kopyalandı: ' + val);
+        } catch {
+          showToast('Wi-Fi: ' + DATA.wifiName + ' / ' + DATA.wifiPass);
+        }
+      });
+
+      document.getElementById('vcardBtn')?.addEventListener('click', () => {
+        const vcf = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          'FN:' + DATA.businessName,
+          'ORG:' + DATA.businessName,
+          'TEL;TYPE=WORK,VOICE:+' + DATA.phone,
+          DATA.address ? 'ADR;TYPE=WORK:;;' + DATA.address.replaceAll(';', ' ') + ';;;;' : '',
+          'END:VCARD'
+        ].filter(Boolean).join('\r\n');
+        const blob = new Blob([vcf], { type: 'text/vcard;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'for-men-kuafor.vcf';
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(link.href), 1500);
+        showToast('Rehber kartı indirildi (.vcf)');
+      });
+    })();
+  </script>
+</body>
+</html>
